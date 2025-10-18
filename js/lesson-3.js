@@ -173,29 +173,30 @@ function sortArraywithoutMutation(arr) {
 sortArraywithoutMutation(numbersArray);
 
 
-
-
 // Завдання 7:
 
 // Відсортуйте масив рядків ["banana", "orange", "apple", "pear"]
 //  у порядку алфавіту. 
 // Очікуваний результат: ["apple", "banana", "orange", "pear"].
 
-// const stringArray = ['banana', 'orange', 'apple', 'pear'];
+const stringArray = ['banana', 'orange', 'apple', 'pear'];
 
-
+const sortedFruitesArray = stringArray.sort()
+console.log(sortedFruitesArray);
 
 // Завдання 8:
 
 //  Відсортуйте масив об'єктів за віком у порядку зростання. 
 // Очікуваний результат: [{name: "Bob", age: 19}, {name: "John", age: 27}, {name: "Jane", age: 31}].
 
-//const users = [
-//  { name: 'John', age: 27 },
-//  { name: 'Jane', age: 31 },
-//  { name: 'Bob', age: 19 },
-// ];
+const users = [
+ { name: 'John', age: 27 },
+ { name: 'Jane', age: 31 },
+ { name: 'Bob', age: 19 },
+];
 
+users.sort((a,b) => a.age -b.age);
+console.table(users);
 
 
 // Завдання 9:
@@ -205,11 +206,20 @@ sortArraywithoutMutation(numbersArray);
 // вік більше 20 років. 
 // Очікуваний результат: [{name: "John", age: 27}, {name: "Jane", age: 31}]
 
-//const user = [
-//  { name: 'John', age: 27 },
-//  { name: 'Jane', age: 31 },
-//  { name: 'Bob', age: 19 },
-// ]
+const user = [
+ { name: 'John', age: 27 },
+ { name: 'Jane', age: 31 },
+ { name: 'Bob', age: 19 },
+]
+
+let olderTwentyArr = [];
+user.map(el => {
+    if(el.age>20){
+        console.log(el)
+        olderTwentyArr.push(el);
+    }
+})
+console.table(olderTwentyArr);
 
 
 
@@ -218,8 +228,10 @@ sortArraywithoutMutation(numbersArray);
 // Дано масив чисел [1, 2, 3, 4, 5]. 
 // Застосуйте метод для обчислення суми елементів масиву.
 
-// const numbers = [1, 2, 3, 4, 5];
+const numbers4 = [1, 2, 3, 4, 5];
 
+const sum = numbers4.reduce((acc, currentValue) => acc + currentValue, 0);
+console.log(sum)
 
 
 // Завдання 11:
@@ -249,9 +261,45 @@ sortArraywithoutMutation(numbersArray);
  
  // Об'єкт класу може проводити послідовні операції у вигляді ланцюжка
  
- // Приклад використання:
- // const calc = new Calculator();
+class Calculator{
+    constructor(memory){
+        this.memory = 0;
+    
+    }
+    number(value){
+        this.memory = value;
+        return this.memory;
+    }
+    
+    add(value){
+        this.memory+=value;
+        return this.memory;
+    }
+    subtract(value){
+         this.memory-=value;
+         return this.memory;
+    }
+    multiply(value){
+        this.memory*=value;
+        return this.memory;
+    }
+    divide(value){
+        if (value === 0) {
+            throw new Error("Деление на ноль недопустимо!");
+        }
+        this.memory/=value;
+        return this.memory;
+    }
+    getResult(){
+        return this.memory;
+    }
+    
 
+}
+
+// let calc = new Calculator();
+
+// console.log(calc.number(20).getResult())
 
 // const result = calc
 //   .number(10)   // Встановлюємо початкове значення 10
@@ -271,7 +319,29 @@ sortArraywithoutMutation(numbersArray);
  // Оголоси приватні властивості #login #email, доступ до яких зроби 
  // через геттер та сеттер login email
 
-
+class Client{
+    #login;
+    #email;
+    constructor(){
+        this.#login = params.login;
+        this.#email = params.email;
+    }
+    set login(newLogin){
+        this.#login = newLogin;
+    }
+    get login(){
+        console.log(this.#login);
+        return this.#login;
+    }
+    
+    set email(newEmail){
+        this.#email = newEmail;
+    }
+    get email(){
+        console.log(this.#email);
+        return this.#email;
+    }
+}
 
 // Завдання 13:
 
@@ -287,7 +357,34 @@ sortArraywithoutMutation(numbersArray);
   //та електронною поштою людини.
   
   // 
-  // Потім Створіть клас `Employee`, який розширює клас `Person` і містить наступні властивості:
+  // Потім Створіть клас `Employee`, який розширює клас `Person` 
+  // і містить наступні властивості:
   //  - salary - зарплата співробітника;
   //  - department - відділ, в якому працює співробітник.
-  // Крім того, клас `Employee` має мати метод `getEmployeeDetails()`, який повертає об'єкт з зарплатою співробітника та відділом, в якому він працює.
+  // Крім того, клас `Employee` має мати метод `getEmployeeDetails()`, 
+  // який повертає об'єкт з зарплатою співробітника та відділом, 
+  // в якому він працює.
+
+class Person{
+
+    constructor(params){
+        this.name = params.name;
+        this.age = params.age;
+        this.gender = params.gender;
+        this.email = params.email;
+    }
+
+    getDetails(){
+        return {name: this.name, age: this.age, gender: this.gender, email: this.email}
+    }    
+}
+
+class Employee extends Person{
+    constructor(params){
+        this.salary = params.salary;
+        this.department = params.department;
+    }
+    getEmployeeDetails(){
+        return {salary: this.salary, department: this.department}
+    }
+}
