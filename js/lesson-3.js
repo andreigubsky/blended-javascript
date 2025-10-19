@@ -443,9 +443,10 @@ class Person{
 
 class Employee extends Person{
     constructor(params){
+        super(params);
         this.salary = params.salary;
         this.department = params.department;
-        super(params);
+        
     }
     getEmployeeDetails(){
         return {salary: this.salary, department: this.department}
