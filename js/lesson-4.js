@@ -1,0 +1,90 @@
+//Task 1
+const body = document.querySelector("body");
+console.log(body);
+
+//2
+const title = document.querySelector('#title')
+console.log(title);
+
+//3
+const list = document.querySelector('.list')
+console.log(list);
+
+//4
+const dataTopic = document.querySelectorAll('[data-topic]')
+console.log(dataTopic);
+
+//5
+console.log(dataTopic[0]);
+
+//6
+console.log(dataTopic[dataTopic.length-1]);
+
+//7
+const neighbour = document.querySelector('h1').nextElementSibling;
+console.log(neighbour);
+
+//8
+const allHeaders = document.querySelectorAll("h3")
+console.log(allHeaders);
+
+
+//9
+allHeaders.forEach(el => {el.classList.add('active')})
+// allHeaders.every((el)=>{el.classList.add('active')})
+// allHeaders.map((el)=> {el.classList.add('active')});
+// for(let el in allHeaders){
+//     el.classList.add('active')
+// }
+
+//10
+const navigation = document.querySelector('li[data-topic="navigation"]')
+console.log(navigation)
+
+//11
+navigation.style.backgroundColor = 'yellow';
+
+//12 
+navigation.querySelector('p').textContent = 'Я змінив тут текст!';
+
+//13
+const currentTopic = "manipulation";
+
+const element = document.querySelector(`[data-topic=${currentTopic}]`)
+console.log(element);
+
+//14
+element.setAttribute('style', 'background-color: blue')
+
+//15
+const completed = document.querySelector(".completed")
+console.log(completed);
+
+//16
+completed.remove
+
+//17
+const header = document.querySelector('h1');
+const paragraph = document.createElement('p');
+paragraph.textContent = "Об'єктна модель документа (Document Object Model)"
+header.prepend(paragraph)
+
+//18
+const newLi = document.createElement('li');
+const newElHeader = document.createElement('h3');
+newElHeader.textContent="Властивість innerHTML";
+const newElParagraph = document.createElement('p')
+newElParagraph.textContent="Ще один спосіб створити DOM-елементи і помістити їх в дерево - це використовувати рядки з тегами і дозволити браузеру зробити всю важку роботу";
+newLi.appendChild(newElHeader);
+newLi.appendChild(newElParagraph);
+list.appendChild(newLi);
+
+//19
+const newHeader = "Властивість innerHTML";
+const newParagraph = "Ще один спосіб створити DOM-елементи і помістити їх в дерево - це використовувати рядки з тегами і дозволити браузеру зробити всю важку роботу";
+list.insertAdjacentHTML('beforeend', `<li><h3>${newHeader}</h3><p>${newParagraph}</p></li>`)
+
+//20
+// while (list.firstChild) {
+//     list.firstChild.remove()
+// }
