@@ -1,4 +1,5 @@
 //Task 1
+//1
 const body = document.querySelector("body");
 console.log(body);
 
@@ -88,3 +89,47 @@ list.insertAdjacentHTML('beforeend', `<li><h3>${newHeader}</h3><p>${newParagraph
 // while (list.firstChild) {
 //     list.firstChild.remove()
 // }
+
+
+//Task 2
+// Створіть контейнер div (з класом number-container) в HTML-документі 
+// та динамічно створіть 100 блоків (з класом number) наповнивши їх рандомними
+// числами від 1 до 100 і додайте їх до контейнера div(numberContainer). 
+// Парні числа повинні мати зелений фон (додати клас even), 
+// Непарні числа - жовтий фон (додати клас odd).
+
+const randomNumber = () => Math.floor(Math.random() * 100) + 1;
+const newDivWrapper = document.createElement('div');
+newDivWrapper.setAttribute('class', 'number-container');
+
+for(let i =1; i<100; i+=1){
+    const newDiv = document.createElement('div')
+    newDiv.setAttribute('class', 'number');
+    const randomN = randomNumber();
+    newDiv.textContent = randomN;
+
+    if(randomN%2===0){
+        newDiv.classList.add('even');
+    }else{
+        newDiv.classList.add('odd');
+    }
+    
+    newDivWrapper.appendChild(newDiv);
+    console.log(newDiv)
+}
+
+list.appendChild(newDivWrapper);
+
+
+
+
+
+
+
+
+
+
+
+
+
+

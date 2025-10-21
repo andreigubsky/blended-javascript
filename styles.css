@@ -35,6 +35,13 @@ ul {
 .active {
   color: red;
 }
+.even{
+  background-color: green;
+}
+
+.odd{
+  background-color: yellow;
+}
 
 .task-title {
   font-size: 20px;
