@@ -133,3 +133,61 @@ list.appendChild(newDivWrapper);
 
 
 
+
+
+
+
+
+
+//Task 3
+//1
+const input =  document.querySelector('.contact-form');
+input.addEventListener('input', function(event){
+    const currentValue = event.target.value; 
+    if(currentValue.length<6){
+        input.classList.remove('success')
+        input.classList.add('error') 
+    }else{
+        input.classList.remove('error')
+        input.classList.add('success')
+    }
+})
+
+//2
+input.addEventListener('focus', function(event){
+    const currentValue = event.target.value; 
+    if(currentValue ===''){
+        input.style.outline = '3px solid red';
+        console.log(currentValue);
+    }else{
+        input.style.outline = '3px solid green';
+    }
+})
+
+//3
+input.addEventListener('blur', function(event){
+    const currentValue = event.target.value;
+    if(currentValue ===''){
+        input.style.outline = '3px solid red';
+    }else{
+        input.addEventListener('focus', function(event){
+            if(currentValue ===''){
+                input.style.outline = '3px solid red';
+                console.log(currentValue);
+            }else{
+                input.style.outline = '3px solid lime';
+            } 
+        })
+    }
+})
+
+//4
+const inputCheckbox =  document.querySelector('.contact-form-checkbox');
+
+function handleSubmit(event) {
+    const currentValue = event.target.value; 
+    event.preventDefault();
+    if(currentValue ===''){}
+}
+
+input.addEventListener('sunmit', handleSubmit)
