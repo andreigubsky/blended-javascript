@@ -1,37 +1,38 @@
 //Task 1
 //1
-const body = document.querySelector("body");
+const body = document.querySelector('body');
 console.log(body);
 
 //2
-const title = document.querySelector('#title')
+const title = document.querySelector('#title');
 console.log(title);
 
 //3
-const list = document.querySelector('.list')
+const list = document.querySelector('.list');
 console.log(list);
 
 //4
-const dataTopic = document.querySelectorAll('[data-topic]')
+const dataTopic = document.querySelectorAll('[data-topic]');
 console.log(dataTopic);
 
 //5
 console.log(dataTopic[0]);
 
 //6
-console.log(dataTopic[dataTopic.length-1]);
+console.log(dataTopic[dataTopic.length - 1]);
 
 //7
 const neighbour = document.querySelector('h1').nextElementSibling;
 console.log(neighbour);
 
 //8
-const allHeaders = document.querySelectorAll("h3")
+const allHeaders = document.querySelectorAll('h3');
 console.log(allHeaders);
 
-
 //9
-allHeaders.forEach(el => {el.classList.add('active')})
+allHeaders.forEach(el => {
+  el.classList.add('active');
+});
 // allHeaders.every((el)=>{el.classList.add('active')})
 // allHeaders.map((el)=> {el.classList.add('active')});
 // for(let el in allHeaders){
@@ -39,155 +40,211 @@ allHeaders.forEach(el => {el.classList.add('active')})
 // }
 
 //10
-const navigation = document.querySelector('li[data-topic="navigation"]')
-console.log(navigation)
+const navigation = document.querySelector('li[data-topic="navigation"]');
+console.log(navigation);
 
 //11
 navigation.style.backgroundColor = 'yellow';
 
-//12 
+//12
 navigation.querySelector('p').textContent = 'Я змінив тут текст!';
 
 //13
-const currentTopic = "manipulation";
+const currentTopic = 'manipulation';
 
-const element = document.querySelector(`[data-topic=${currentTopic}]`)
+const element = document.querySelector(`[data-topic=${currentTopic}]`);
 console.log(element);
 
 //14
-element.setAttribute('style', 'background-color: blue')
+element.setAttribute('style', 'background-color: blue');
 
 //15
-const completed = document.querySelector(".completed")
+const completed = document.querySelector('.completed');
 console.log(completed);
 
 //16
-completed.remove
+completed.remove();
 
 //17
 const header = document.querySelector('h1');
 const paragraph = document.createElement('p');
-paragraph.textContent = "Об'єктна модель документа (Document Object Model)"
-header.prepend(paragraph)
+paragraph.textContent = "Об'єктна модель документа (Document Object Model)";
+header.prepend(paragraph);
 
 //18
 const newLi = document.createElement('li');
 const newElHeader = document.createElement('h3');
-newElHeader.textContent="Властивість innerHTML";
-const newElParagraph = document.createElement('p')
-newElParagraph.textContent="Ще один спосіб створити DOM-елементи і помістити їх в дерево - це використовувати рядки з тегами і дозволити браузеру зробити всю важку роботу";
+newElHeader.textContent = 'Властивість innerHTML';
+const newElParagraph = document.createElement('p');
+newElParagraph.textContent =
+  'Ще один спосіб створити DOM-елементи і помістити їх в дерево - це використовувати рядки з тегами і дозволити браузеру зробити всю важку роботу';
 newLi.appendChild(newElHeader);
 newLi.appendChild(newElParagraph);
 list.appendChild(newLi);
 
 //19
-const newHeader = "Властивість innerHTML";
-const newParagraph = "Ще один спосіб створити DOM-елементи і помістити їх в дерево - це використовувати рядки з тегами і дозволити браузеру зробити всю важку роботу";
-list.insertAdjacentHTML('beforeend', `<li><h3>${newHeader}</h3><p>${newParagraph}</p></li>`)
+const newHeader = 'Властивість innerHTML';
+const newParagraph =
+  'Ще один спосіб створити DOM-елементи і помістити їх в дерево - це використовувати рядки з тегами і дозволити браузеру зробити всю важку роботу';
+list.insertAdjacentHTML(
+  'beforeend',
+  `<li><h3>${newHeader}</h3><p>${newParagraph}</p></li>`
+);
 
 //20
 // while (list.firstChild) {
 //     list.firstChild.remove()
 // }
-
+list.innerHTML = "";
 
 //Task 2
-// Створіть контейнер div (з класом number-container) в HTML-документі 
+// Створіть контейнер div (з класом number-container) в HTML-документі
 // та динамічно створіть 100 блоків (з класом number) наповнивши їх рандомними
-// числами від 1 до 100 і додайте їх до контейнера div(numberContainer). 
-// Парні числа повинні мати зелений фон (додати клас even), 
+// числами від 1 до 100 і додайте їх до контейнера div(numberContainer).
+// Парні числа повинні мати зелений фон (додати клас even),
 // Непарні числа - жовтий фон (додати клас odd).
+
 
 const randomNumber = () => Math.floor(Math.random() * 100) + 1;
 const newDivWrapper = document.createElement('div');
 newDivWrapper.setAttribute('class', 'number-container');
 
-for(let i =1; i<100; i+=1){
-    const newDiv = document.createElement('div')
-    newDiv.setAttribute('class', 'number');
-    const randomN = randomNumber();
-    newDiv.textContent = randomN;
+for (let i = 1; i < 100; i += 1) {
+  const newDiv = document.createElement('div');
+  newDiv.setAttribute('class', 'number');
+  const randomN = randomNumber();
+  newDiv.textContent = randomN;
 
-    if(randomN%2===0){
-        newDiv.classList.add('even');
-    }else{
-        newDiv.classList.add('odd');
-    }
-    
-    newDivWrapper.appendChild(newDiv);
-    console.log(newDiv)
+  if (randomN % 2 === 0) {
+    newDiv.classList.add('even');
+  } else {
+    newDiv.classList.add('odd');
+  }
+  newDivWrapper.appendChild(newDiv);
 }
-
 list.appendChild(newDivWrapper);
 
 
 
+//Додаткове завдання - Бронювання місць
+const newDivWrapperMovie = document.createElement('div');
+newDivWrapperMovie.setAttribute('class', 'number-container');
+
+const occupied = Array.from(
+  { length: 70 },
+  () => Math.floor(Math.random() * (100 - 1 + 1)) + 1
+);
 
 
+for (let i = 1; i < 100; i += 1) {
+  const newDiv = document.createElement('div');
+  newDiv.setAttribute('class', 'number');
+  if (occupied.includes(i)) {
+    newDiv.classList.add('occupied');
+  } else {
+    newDiv.classList.add('free');
+  }
+  newDiv.textContent = i;
+  newDivWrapperMovie.appendChild(newDiv);
+}
+list.appendChild(newDivWrapperMovie);
 
+newDivWrapperMovie.addEventListener('click', markSits);
 
-
-
-
-
-
-
-
-
-
-
-
-
+function markSits(e) {
+  if (e.target.classList.contains('ocupied')) return;
+  e.target.classList.add('free-new');
+}
 
 //Task 3
 //1
-const input =  document.querySelector('.contact-form');
-input.addEventListener('input', function(event){
-    const currentValue = event.target.value; 
-    if(currentValue.length<6){
-        input.classList.remove('success')
-        input.classList.add('error') 
-    }else{
-        input.classList.remove('error')
-        input.classList.add('success')
-    }
-})
+const input = document.querySelector('.contact-form');
+input.addEventListener('input', function (event) {
+  const currentValue = event.target.value;
+  if (currentValue.length < 6) {
+    input.classList.remove('success');
+    input.classList.add('error');
+  } else {
+    input.classList.remove('error');
+    input.classList.add('success');
+  }
+});
 
 //2
-input.addEventListener('focus', function(event){
-    const currentValue = event.target.value; 
-    if(currentValue ===''){
-        input.style.outline = '3px solid red';
-        console.log(currentValue);
-    }else{
-        input.style.outline = '3px solid green';
-    }
-})
+input.addEventListener('focus', function (event) {
+  const currentValue = event.target.value;
+  if (currentValue === '') {
+    input.style.outline = '3px solid red';
+    console.log(currentValue);
+  } else {
+    input.style.outline = '3px solid green';
+  }
+});
 
 //3
-input.addEventListener('blur', function(event){
-    const currentValue = event.target.value;
-    if(currentValue ===''){
+input.addEventListener('blur', function (event) {
+  const currentValue = event.target.value;
+  if (currentValue === '') {
+    input.style.outline = '3px solid red';
+  } else {
+    input.addEventListener('focus', function (event) {
+      if (currentValue === '') {
         input.style.outline = '3px solid red';
-    }else{
-        input.addEventListener('focus', function(event){
-            if(currentValue ===''){
-                input.style.outline = '3px solid red';
-                console.log(currentValue);
-            }else{
-                input.style.outline = '3px solid lime';
-            } 
-        })
-    }
-})
+        console.log(currentValue);
+      } else {
+        input.style.outline = '3px solid lime';
+      }
+    });
+  }
+});
 
 //4
-const inputCheckbox =  document.querySelector('.contact-form-checkbox');
+const inputCheckbox = document.querySelector('.contact-form-checkbox');
 
 function handleSubmit(event) {
-    const currentValue = event.target.value; 
-    event.preventDefault();
-    if(currentValue ===''){}
+  const currentValue = event.target.value;
+  event.preventDefault();
+  if (currentValue === '') {
+  }
 }
 
-input.addEventListener('sunmit', handleSubmit)
+input.addEventListener('submit', handleSubmit);
+
+
+//Task 4
+const zoomInBtn = document.querySelector('#increase');
+const zoomOutBtn = document.querySelector('#decrease');
+const boxElem = document.querySelector('.box');
+
+const styles = window.getComputedStyle(boxElem);
+console.log(styles.width)
+
+
+
+let height = boxElem.offsetHeight;
+let width = boxElem.offsetWidth;
+console.log(height);
+console.log(width);
+
+
+zoomInBtn.addEventListener('click', zoomIn)
+zoomOutBtn.addEventListener('click', zoomOut)
+
+function zoomIn(event){
+    console.log(event)
+    console.log(boxElem.style)
+    const styles = window.getComputedStyle(boxElem);
+    boxElem.style.width =   `${styles.width}+200 px;`;
+    event.currentTarget.style.height = `${height+=20} px;`;
+    console.log(height);
+    console.log(width);
+}
+function zoomOut(event){
+    boxElem.style.width = `${width-=20} px;`;
+    boxElem.style.height = `${height-=20} px;`;
+    console.log(height);
+    console.log(width);
+}
+
+
+

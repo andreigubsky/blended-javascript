@@ -66,6 +66,7 @@ ul {
 .number-container {
   display: flex;
   flex-wrap: wrap;
+  padding: 40px 0;
 }
 
 .number {
@@ -76,8 +77,6 @@ ul {
   align-items: center;
   font-size: 18px;
   font-weight: 700;
-
-
   margin: 5px;
 }
 
@@ -87,6 +86,22 @@ ul {
 
 .odd {
   background-color: #ffed3b;
+}
+
+.free {
+  background-color: #9fdd59;
+}
+.free:hover {
+  cursor: pointer;
+  background-color: #71aa2f;
+}
+
+.occupied {
+  background-color: #909090;
+}
+.free-new {
+  border: 2px solid #8bc34a;
+  background-color: #71aa2f;
 }
 
 /* form styles */
